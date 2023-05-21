@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0 //EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.Mapper.BoardMapper">
+   <!-- 데이터 연결 테스트  -->
+    <select id="getAllBoards" resultType="com.example.demo.Dto.BoardDto">
+        select * from general_board where board_del_yn = 'N'
+    </select>
+
+    <select id="searchBoards" parameterType="String" resultType="com.example.demo.Dto.BoardDto">
+            SELECT *
+            FROM general_board
+            WHERE board_del_yn = 'N'
+            AND (board_title LIKE CONCAT('%', #{search}, '%') OR board_text LIKE CONCAT('%', #{search}, '%'))
+    </select>
+
+    <select id="getBoard" parameterType="Integer" resultType="com.example.demo.Dto.BoardDto">
+        select * from general_board where board_seq = #{seq}
+    </select>
+
+    <select id="createBoard" parameterType="com.example.demo.Dto.BoardDto">
+        INSERT INTO general_board(board_title,board_text,board_writer,board_reg_date,board_mod_date,board_img_path,board_del_yn)
+        values(#{board_title},#{board_text},#{board_writer},now(),now(),#{board_img_path},'N');
+    </select>
+
+    <select id="updateBoard" parameterType="com.example.demo.Dto.BoardDto">
+        UPDATE general_board 
+        SET board_title = #{board_title},
+            board_text = #{board_text},
+            board_writer =#{board_writer},
+            board_mod_date =now(),
+            board_img_path =#{board_img_path}
+            WHERE board_seq = #{board_seq};
+    </select>
+
+    <select id="deleteBoard" parameterType="Integer">
+        UPDATE general_board 
+        SET board_del_yn='Y'
+        WHERE board_seq = #{seq};
+    </select>
+
+</mapper>

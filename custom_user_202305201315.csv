@@ -1,0 +1,6 @@
+"custom_user_seq","custom_user_name","custom_user_nick","custom_user_email","custom_user_pswd","custom_user_birth","custom_user_phone","custom_user_address","custom_user_auth","custom_user_del_yn","custom_user_reg_date","custom_user_mod_date"
+1,김갑신,user,ost126@naver.com,"1234","19931026","01048833248",,"2",N,2023-05-12 12:11:25.000,2023-05-12 12:11:25.000
+2,"4","4","4","4","4","4",,"2",N,2023-05-12 13:08:02.000,2023-05-12 13:08:02.000
+3,dd,user1,dd,"1234","00000000","00000000000",,"2",N,2023-05-15 10:37:01.000,2023-05-15 10:37:01.000
+4,dd,kap,dd,"1234","00000000","00000000000",,"2",N,2023-05-15 16:46:22.000,2023-05-15 16:46:22.000
+5,dd,ddd,ddd,dddd,"00000000","00000000000",,"2",N,2023-05-19 11:07:43.000,2023-05-19 11:07:43.000

@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'org.springframework.boot' version '2.7.11'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client' // MariaDB
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.0'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+    annotationProcessor 'org.projectlombok:lombok'
+    
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+
+      //JSTL
+   // implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0'
+   // implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:2.0.0'
+   implementation 'javax.servlet:jstl'
+
+   implementation 'org.springframework.boot:spring-boot-starter-validation'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
